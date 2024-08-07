@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import Card from "./Card"
-import { apiProductType } from "../helpers/types"
 import { productData } from "../helpers"
 
 const ProductsCard = () => {

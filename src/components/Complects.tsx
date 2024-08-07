@@ -11,7 +11,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import React from 'react';
 import { selectedProduct } from './SelectedProduct';
 
-const Complects:React.FC<selectedProduct> = ({ id, index, product }) => {
+const Complects:React.FC<selectedProduct> = ({ product }) => {
   
   return (
     <div className='px-[5%] mt-10'>
@@ -42,8 +42,6 @@ const Complects:React.FC<selectedProduct> = ({ id, index, product }) => {
             }}    
             mousewheel={{ forceToAxis: true }}
             keyboard={{ enabled: true }}
-            // onSlideChange={() => console.log('slide change')}
-            // onSwiper={(swiper) => console.log(swiper)}
             >
             {product?.complect.map((item, i) => (
                 <SwiperSlide key={i}>

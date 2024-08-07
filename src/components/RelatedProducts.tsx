@@ -1,15 +1,11 @@
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-import { related } from '../helpers';
-import ComplectsCard from './ComplectsCard';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
-
 export default function RelatedProduct() {
   return (
     <div className='pb-24 px-[5%]'>
@@ -43,11 +39,6 @@ export default function RelatedProduct() {
             // onSlideChange={() => console.log('slide change')}
             // onSwiper={(swiper) => console.log(swiper)}
             >
-            {related.map((item, index) => (
-                <SwiperSlide>
-                    <ComplectsCard item={item} index={index}/> 
-                </SwiperSlide>
-            ))}
             </Swiper>
         </div>
     </div>

@@ -2,9 +2,8 @@ import { useNavigate, useParams } from "react-router-dom"
 import { BackButton } from "../components/BackButton"
 import SelectedProduct from "../components/SelectedProduct"
 import Complects from "../components/Complects"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { apiProductType } from "../helpers/types"
-import { productFetching } from "../API/helpers"
 import { productData } from "../helpers"
 
 const ProductItem = () => {

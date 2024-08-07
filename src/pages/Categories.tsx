@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from "react"
+import {useEffect, useState} from "react"
 import { useNavigate } from "react-router-dom";
-import { items } from "../helpers";
 import { Icons } from "../helpers/icons";
 import Card from "../components/Card";
 import { categoryFetching } from "../API/helpers";
@@ -17,7 +16,6 @@ export default function Categories() {
                 setCategories(data)
             } catch (error) {
                 console.log(error);
-                
             }
         }
         getData();
