@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 interface InputProps {
     placeholder: string;
     onchange: (event: ChangeEvent<HTMLInputElement>) => void;
