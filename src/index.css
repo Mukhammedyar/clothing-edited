@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.montserrat-normal {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.montserrat-medium {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.montserrat-bold {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+.montserrat-extrabold {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+  .contain {
+    @apply px-8 md:px-12 lg:px-16 xl:px-[8%];
+  }
+  .contain_inline {
+    @apply px-8 md:px-12 lg:px-16 xl:px-[8%];
+  }
+  .header-page {
+    @apply text-2xl md:text-3xl lg:text-3xl;
+  }
+  .card-title {
+    @apply sm:text-lg lg:text-xl;
+  }
+  .card_text_container {
+    @apply mb-2 sm:mb-4 lg:mb-5 px-3 sm:px-5 md:px-3 lg:px-5;
+  }
+  .card_subtitle {
+    @apply md:text-lg lg:text-lg text-sm montserrat-normal;
+  }
+  .border-card {
+    @apply border-2 border-zinc-900;
+  }
+  .border_full_rounded {
+    @apply border-2 rounded-full border-zinc-900 p-1 px-2;
+  }
+  .button-dark {
+    @apply px-4 py-2 rounded-md hover:bg-zinc-800 transition-all;
+  }
+  .focus-input {
+    @apply focus:outline-none;
+  }
+  .input-styles {
+    @apply w-full p-3 px-5 h-[40px] md:h-[45px] text-sm rounded-s-full border-r-0 bg-black focus-input border-zinc-900 border-[1px];
+  }
+  .card-gradient-item {
+    @apply absolute bottom-0 z-0 flex montserrat-normal left-0 right-0 h-64 items-end bg-gradient-to-t from-zinc-950 rounded-s-md rounded-e-md md:rounded-s-xl md:rounded-e-xl lg:rounded-s-3xl lg:rounded-e-3xl via-transparent to-transparent;
+  }
+  .search-button {
+    @apply px-7 h-[40px] md:h-[45px] bg-black border-[1px] border-l-0 border-zinc-900 rounded-e-full;
+  }
+  .header_card {
+    @apply text-lg;
+  }
+  .subheader {
+    @apply text-sm sm:text-[16px] montserrat-normal text-zinc-400;
+  }
+  .add-to-cart-button {
+    @apply text-white rounded-full montserrat-medium text-[13px] gap-2 w-32 px-2 flex-center py-2;
+  }
+  .size-container {
+    @apply flex-center cursor-pointer hover:bg-zinc-900 transition-all border-card rounded-full;
+  }
+  .colors_display {
+    @apply flex flex-col sm:flex-row sm:items-center justify-between;
+  }
+}
+
+.add-to-cart-button {
+  background: linear-gradient(to right, #4c4bdd, #189f4f);
+}
+.add-to-cart-button:hover {
+  transition: all 2s ease-in;
+  background: linear-gradient(to right, #23a446, #e3b20a);
+}

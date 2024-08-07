@@ -1,0 +1,18 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@types",
+      "./path-to-your-custom-declarations"  // Bu yerda deklaratsiya faylingiz joylashgan joyni ko'rsating
+    ]
+  }
+}
+
