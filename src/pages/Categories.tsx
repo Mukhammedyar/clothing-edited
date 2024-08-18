@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react"
-import { useNavigate } from "react-router-dom";
 import { Icons } from "../helpers/icons";
 import Card from "../components/Card";
 import { categoryFetching } from "../API/helpers";
