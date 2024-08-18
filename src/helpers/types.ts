@@ -1,4 +1,3 @@
-import { MouseEvent } from "react";
 
 export interface CardProps {
     index: number | undefined, 

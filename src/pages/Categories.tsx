@@ -41,7 +41,7 @@ export default function Categories() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-5 px-5 md:px-10">
                 {categories.map((item, index) => (
-                <Card key={index} index={index} onClick={()=> navigate('/categorie/'+ item.type)}>
+                <Card key={index} index={index} /*onClick={()=> navigate('/categorie/'+ item.type)}*/>
                     <img src={item.imgUrl} alt={item.name} className="w-full h-auto object-cover" />
                     <div className="card-gradient-item">
                         <div className="flex justify-between items-end w-full card_text_container">

@@ -8,7 +8,7 @@ interface complectsType {
     item: apiProductType,
 }
 
-const ComplectsCard:React.FC<complectsType> = ({ i, item }) => {
+const ComplectsCard:React.FC<complectsType> = ({ item }) => {
     const navigate = useNavigate()
     const [liked, setLiked] = useState(false)
 
