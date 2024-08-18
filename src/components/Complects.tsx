@@ -9,12 +9,26 @@ import 'swiper/css/pagination';
 import ComplectsCard from './ComplectsCard';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import React from 'react';
-import { selectedProduct } from './SelectedProduct';
+import { apiProductType } from '../helpers/types';
+import { productData } from '../helpers';
 
-const Complects:React.FC<selectedProduct> = ({ product }) => {
+interface complectType{
+  product: apiProductType,
+}
+
+const Complects:React.FC<complectType> = ({ product}) => {
+  const complects:apiProductType[] = []
+  product.complect.map(i => {
+    const ss = productData.filter(p => p.name === i)
+    complects.push(ss[0])
+    window.scrollTo({top: 0, behavior: 'instant'})
+  })
+
+ 
   
-  return (
-    <div className='px-[5%] mt-10'>
+
+  return (  
+    <div className='px-[5%] py-24'>
         <p className="header-page montserrat-medium mb-5">Complete the look</p>
         <div>
             <Swiper
@@ -36,16 +50,16 @@ const Complects:React.FC<selectedProduct> = ({ product }) => {
               },
               980: {
                 width: 1100,
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 10
               },
             }}    
             mousewheel={{ forceToAxis: true }}
             keyboard={{ enabled: true }}
             >
-            {product?.complect.map((item, i) => (
+            {complects.map((item, i) => (
                 <SwiperSlide key={i}>
-                <ComplectsCard item={item} i={i} /> 
+                  <ComplectsCard item={item} i={i} /> 
                 </SwiperSlide>
             ))}
             </Swiper>

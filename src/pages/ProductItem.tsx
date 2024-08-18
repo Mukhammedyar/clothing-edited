@@ -5,24 +5,34 @@ import Complects from "../components/Complects"
 import { useState } from "react"
 import { apiProductType } from "../helpers/types"
 import { productData } from "../helpers"
+import { Icons } from "../helpers/icons"
 
 const ProductItem = () => {
   const navigate = useNavigate()
   const [index, setIndex] = useState(0)
   const { id } = useParams<{ id: string }>()
-    
-  const filteredProduct:apiProductType[] = productData.filter(p => p.name === id)
+  
+  const filteredProduct:apiProductType[] = productData.filter(p => p.name === id)  
 
   return (
     <div className="bg-black min-h-screen text-white montserrat-normal">
-      <div className="flex items-center gap-5 py-10 contain">
-        <BackButton onClick={()=> navigate(-1)}/>
+      <div className="flex items-center justify-between gap-5 py-5 mb-10 top-0 sticky backdrop-blur-md contain border-b-[1px] border-b-zinc-900">
+        <div className="flex gap-3 items-center">
+          <BackButton onClick={()=> navigate(-1)}/>
+          <div 
+            onClick={()=> navigate('/')}
+            className="w-auto px-5 gap-3 cursor-pointer h-12 rounded-full border-zinc-900 border-[1px] flex items-center justify-center">
+            <p className="text-md">Go to Home</p>
+            <Icons.Home width={23} height={23}/>
+          </div>
+        </div>
         <h1 className="header-page montserrat-medium">
           {id}
         </h1>
+        <Icons.Cart width={20} height={20}/>
       </div>
       <SelectedProduct id={id || ''} setIndex={setIndex} index={index} product={filteredProduct[0]} />
-      <Complects id={id || ''} index={index} setIndex={setIndex} product={filteredProduct[0]}/>
+      <Complects product={filteredProduct[0]}/>
       {/* <Related/> */}
     </div>
   )

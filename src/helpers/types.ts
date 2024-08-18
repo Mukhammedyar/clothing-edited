@@ -1,7 +1,6 @@
 import { MouseEvent } from "react";
 
 export interface CardProps {
-    onClick: (event: MouseEvent<HTMLDivElement>) => void | undefined,
     index: number | undefined, 
     children: React.ReactNode
 }
@@ -64,34 +63,53 @@ export interface ProductType{
     complection: string[],
     related: string[]
 }
+// export interface apiProductType {
+//     _id: number | undefined,
+//     name: string | undefined,
+//     image: string | undefined,
+//     sizes: string[],
+//     detailsHeader: string | undefined,
+//     description: string | undefined,
+//     price: number | undefined,
+//     priceOff: number,
+//     complect: apiComplect[],
+//     color: [string, string],
+//     colorName: string | undefined
+// }
+// export interface apiComplect{
+//     id: number | undefined,
+//     colorName: string, 
+//     color: string[],
+//     image: string,
+//     sizes: string[],
+//     detailsHeader: string | undefined,
+//     description: string | undefined,
+//     name: string | undefined,
+//     price: number,
+//     priceOff: number
+// }
+
 export interface apiProductType {
     _id: number | undefined,
-    name: string | undefined,
+    productId: number,
+    name: string ,
+    title: string | undefined,
     image: string | undefined,
     sizes: string[],
     detailsHeader: string | undefined,
     description: string | undefined,
     price: number | undefined,
     priceOff: number,
-    complect: apiComplect[],
+    complect: string[],
     color: [string, string],
     colorName: string | undefined
-}
-export interface apiComplect{
-    id: number | undefined,
-    colorName: string, 
-    color: string[],
-    image: string,
-    sizes: string[],
-    detailsHeader: string | undefined,
-    description: string | undefined,
-    name: string | undefined,
-    price: number,
-    priceOff: number
 }
 
 
 
 export interface createCategoryType {
     name: string, count: number, imgUrl: string
-  }
+}
+
+
+

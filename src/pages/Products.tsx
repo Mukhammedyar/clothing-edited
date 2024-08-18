@@ -6,12 +6,12 @@ import { color } from '../helpers/images'
 import ModalColors from '../components/ModalColors'
 import { useState } from 'react'
 import { colorsType } from '../helpers/types'
+import { Icons } from '../helpers/icons'
 
 export const Products = () => {
   const [open, setOpen] = useState(false)
   const [lastFourColors, setLastFourColors] = useState<colorsType[]>(defaultColors);
   const navigate = useNavigate()
-  
 
   const handleColorClick = (color : colorsType) => {
     setLastFourColors((prevColors:colorsType[]) => {
@@ -22,17 +22,22 @@ export const Products = () => {
       return newColors;
     });
   };
-  
       
     return (
     <div className="bg-black min-h-screen text-white contain montserrat-normal">
       <div className="container mx-auto">
-        <div className="flex items-center gap-2 md:gap-5 py-5">
-          <BackButton onClick={()=> navigate(-1)}/>
-          <h1 className="header-page montserrat-medium">
-            {/* Select your {id.split(" ").pop()}look! */}
-            Select your look!
-          </h1>
+        <div className="flex items-center gap-2 md:gap-5 py-5 justify-between">
+          <div className="flex items-center gap-5">
+            <BackButton onClick={()=> navigate(-1)}/>
+            <h1 className="header-page montserrat-medium">
+              {/* Select your {id.split(" ").pop()}look! */}
+              Select your look!
+            </h1>
+          </div>
+          <div className="w-auto px-5 h-12 rounded-full border-zinc-900 border-[1px] flex items-center justify-center gap-3 cursor-pointer">
+            <p className="text-sm">Favourites</p>
+            <Icons.Cart width={23} height={23} onClick={()=> navigate('/')}/>
+          </div>
         </div>
         {/* colors */}
         <div className='colors_display w-full mb-10 gap-3'>
