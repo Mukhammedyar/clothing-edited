@@ -6,7 +6,7 @@ import { categoryFetching } from "../API/helpers";
 import { categoryType } from "../helpers/types";
 
 export default function Categories() {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const [categories, setCategories] = useState<categoryType[]>([])
 
     useEffect(() => {
