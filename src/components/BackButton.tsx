@@ -8,7 +8,7 @@ interface BackButtonProps {
 export const BackButton:React.FC<BackButtonProps> = ({onClick}) => {
     
   return (
-    <div className="p-2 border-card rounded-full" onClick={onClick}>
+    <div className="p-2 border_card_last rounded-full" onClick={onClick}>
         <Icons.Back width={25} height={25} />
     </div>
   )

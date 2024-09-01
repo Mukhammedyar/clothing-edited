@@ -62,6 +62,12 @@ export interface ProductType{
     complection: string[],
     related: string[]
 }
+export interface SavedContextType {
+    saved: apiProductType[],
+    isSaved: boolean,
+    addToSaved: (item: apiProductType) => void;
+    removeFromSaved: (name: string) => void;
+}
 // export interface apiProductType {
 //     _id: number | undefined,
 //     name: string | undefined,
@@ -103,8 +109,6 @@ export interface apiProductType {
     color: [string, string],
     colorName: string | undefined
 }
-
-
 
 export interface createCategoryType {
     name: string, count: number, imgUrl: string

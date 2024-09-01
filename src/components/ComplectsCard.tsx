@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { Icons } from '../helpers/icons'
 import { apiProductType } from '../helpers/types'
 import { useState } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface complectsType {
     i: number, 
@@ -15,11 +16,15 @@ const ComplectsCard:React.FC<complectsType> = ({ item }) => {
   return (
     <div className='md:h-[40vh] h-[50vh] bg-zinc-950 rounded-3xl lg:h-[70vh] '>
         <div className='flex items-center w-full h-full' onClick={()=> navigate(`/products/${item.name}`)}>
-            <img
+            <LazyLoadImage 
                 src={item.image}
                 alt={item.name}
-                className="h-[90%] mx-auto object-cover rounded-xl"
-            />
+                style={{ height: '100%', width: 'auto',margin: '0 auto', objectFit: 'contain' }}
+                wrapperClassName="w-full p-5 mx-auto h-[90%] object-cover"
+                className="rounded-xl"
+                effect="blur"
+                loading="lazy"
+              />
             <div className="card-gradient-item">
                 <div className="flex justify-between w-full px-3 mb-3 items-end gap-5">
                     <div className='flex justify-between items-end w-full'>

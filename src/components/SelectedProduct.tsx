@@ -2,6 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { productData } from '../helpers';
 import { Icons } from '../helpers/icons'
 import { apiProductType } from '../helpers/types';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useState } from 'react';
+import AddToSavedButton from './AddToSaveBtn';
 
 export interface selectedProduct {
   id: string
@@ -12,6 +15,7 @@ export interface selectedProduct {
 
 const SelectedProduct: React.FC<selectedProduct> = ({setIndex, index, product}) => {
   const filteredProduct = productData.filter( p => p.title === product.title)
+  const [liked, setLiked] = useState(false)
   const navigate = useNavigate()
   const onClickHandler = (id:number, color:apiProductType) => {
     setIndex(id)
@@ -22,8 +26,17 @@ const SelectedProduct: React.FC<selectedProduct> = ({setIndex, index, product}) 
         <div className="md:grid md:grid-cols-12 gap-5">
           {/* left */}
           <div className="w-full flex-center col-start-1 col-end-6 h-[50vh] md:h-[40vh] lg:h-[80vh]">
-            <div className="w-[300px] sm-w-auto md:w-full h-full flex-center border-card rounded-3xl f6lex-center">
-              <img src={product.image} alt="color" className='w-auto h-[90%] object-cover '/>
+            <div className="w-[300px] sm-w-auto md:w-full h-full flex-center border_card_last rounded-3xl f6lex-center">
+              {/* <img src={product.image} alt="color" className='w-auto h-[90%] object-cover '/> */}
+              <LazyLoadImage 
+                src={product.image}
+                alt={product.name}
+                style={{ height: '100%', width: 'auto',margin: '0 auto', objectFit: 'contain' }}
+                wrapperClassName="w-full p-5 mx-auto h-[100%] object-cover"
+                className="rounded-xl"
+                effect="blur"
+                loading="lazy"
+              />
             </div>
           </div>
           {/* right */}
@@ -92,8 +105,20 @@ const SelectedProduct: React.FC<selectedProduct> = ({setIndex, index, product}) 
               </div>
             </div>
             <div className="flex-center gap-2">
-                <button className="add-to-cart-button">Add to cart <Icons.Cart width={22} height={22}/> </button>
-                <button className="bg-zinc-900 hover:bg-zinc-800 rounded-full p-2"> <Icons.LikeOutlined width={25} height={25}/> </button>
+                <AddToSavedButton 
+                  className='relative add-to-cart-button' 
+                  fullFilledIcon={<Icons.CartFullFilled width={22} height={22}/>} 
+                  outlinedIcon={<Icons.Cart width={22} height={22}/>} 
+                  item={product}>
+                    <p>Add to cart</p>
+                </AddToSavedButton>
+                <AddToSavedButton 
+                  className='relative' 
+                  fullFilledIcon={<Icons.LikeFullFilled width={27} height={27}/>} 
+                  outlinedIcon={<Icons.LikeOutlined width={27} height={27}/>} 
+                  item={product}>
+                    <p></p>
+                </AddToSavedButton>
             </div>
           </div>
         </div>

@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import Card from "./Card"
 import { productData } from "../helpers"
-import { Icons } from "../helpers/icons"
-import { useState } from "react"
 import { apiProductType } from "../helpers/types"
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import AddToSavedButton from "./AddToSaveBtn"
+import { Icons } from "../helpers/icons";
 
 const ProductsCard = () => {
   const navigate = useNavigate()
-  const [liked, setLiked] = useState(false)
 
   const onClickHandler=(item:apiProductType)=> {
     navigate('/products/'+ item.name)
@@ -19,11 +19,16 @@ const ProductsCard = () => {
     {productData.map((item, index) => (
       <Card index={index} key={index}>
           <div className="w-full h-full" onClick={()=> onClickHandler(item)}>
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-auto mx-auto h-[90%] object-cover mb-4"
-            />
+              <LazyLoadImage 
+                src={item.image}
+                alt={item.name}
+                style={{ height: '100%', width: 'auto',margin: '0 auto', objectFit: 'contain' }}
+                wrapperClassName="w-full p-5 mx-auto h-[90%] object-cover"
+                className="rounded-xl"
+                effect="blur"
+                loading="lazy"
+              />
+
             <div className="card-gradient-item ">
             <div className="flex justify-between items-end w-full card_text_container">
               <div className="">
@@ -50,9 +55,13 @@ const ProductsCard = () => {
             </div>
           </div>
         </div>
-        <div className="p-2 flex-center bg-zinc-900 absolute top-3 right-3 rounded-full" onClick={()=> setLiked(!liked)}>
-          {liked ? <Icons.LikeFullFilled width={20} height={20}/> : <Icons.LikeOutlined width={20} height={20}/>}
-        </div>
+        <AddToSavedButton 
+          item={item} 
+          fullFilledIcon={<Icons.CartFullFilled width={25} height={25}/>} 
+          outlinedIcon={<Icons.Cart height={25} width={25}/>} 
+          className="absolute top-3 right-3">
+            <p></p>
+          </AddToSavedButton>
       </Card>
       )
     )}

@@ -99,9 +99,19 @@ export const Icons = {
             width={props.width}  
             height={props.height}
             viewBox="0 0 24 24" 
-            style={{fill: "rgba(255, 255, 255, 1)"}}
+            style={{fill: "rgba(255, 255, 255, 0.7)"}}
             {...props} >
                 <path d="M5 22h14a2 2 0 0 0 2-2v-9a1 1 0 0 0-.29-.71l-8-8a1 1 0 0 0-1.41 0l-8 8A1 1 0 0 0 3 11v9a2 2 0 0 0 2 2zm5-2v-5h4v5zm-5-8.59 7-7 7 7V20h-3v-5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v5H5z"></path>
+        </svg>
+    ),
+    Trash: (props: IconProps) => (
+        <svg 
+            width={props.width}  
+            height={props.height}
+            viewBox="0 0 24 24" 
+            style={{fill: props.color}}
+            {...props}>
+            <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
         </svg>
     )
 };

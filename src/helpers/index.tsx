@@ -97,7 +97,7 @@ export const defaultColors: colorsType[] = [
     }
   }
 ]
-export const ClothingCategores: string[] = ["outerwear", 'underwear', "accories", "shoes"]
+export const ClothingCategores: string[] = ["summer", 'dresses', "accories", "shoes"]
 
 // export const productsData : apiProductType[] = [
 //   {

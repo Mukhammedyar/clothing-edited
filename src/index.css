@@ -49,13 +49,16 @@
     @apply sm:text-lg lg:text-xl;
   }
   .card_text_container {
-    @apply mb-2 sm:mb-4 lg:mb-5 px-3 sm:px-5 md:px-3 lg:px-5;
+    @apply mb-1 sm:mb-2 lg:mb-1 px-3 sm:px-5 md:px-3 lg:px-5;
   }
   .card_subtitle {
     @apply md:text-lg lg:text-lg text-sm montserrat-normal;
   }
   .border-card {
-    @apply border-2 border-zinc-900;
+    @apply border-2 hover:bg-zinc-900 transition-all border-r-0 border-zinc-900;
+  }
+  .border_card_last {
+    @apply border-2 hover:bg-zinc-900 transition-all border-zinc-900;
   }
   .border_full_rounded {
     @apply border-2 rounded-full border-zinc-900 p-1 px-2;
@@ -85,10 +88,16 @@
     @apply text-white rounded-full montserrat-medium text-[13px] gap-2 w-32 px-2 flex-center py-2;
   }
   .size-container {
-    @apply flex-center cursor-pointer hover:bg-zinc-900 transition-all border-card rounded-full;
+    @apply flex-center cursor-pointer hover:bg-zinc-900 hover:text-zinc-100 transition-all border_card_last rounded-full;
   }
   .colors_display {
     @apply flex flex-col sm:flex-row sm:items-center justify-between;
+  }
+  .favourites_box{
+    @apply w-auto px-5 h-12 rounded-full border-zinc-900 border-[1px] flex items-center justify-center gap-3 cursor-pointer hover:bg-zinc-900 text-zinc-400 transition-all hover:text-zinc-100
+  }
+  .sticky_navbar{
+    @apply sticky top-0 bg-[rgba(0,0,0,0.5)] backdrop-blur-md z-10
   }
 }
 
@@ -98,4 +107,68 @@
 .add-to-cart-button:hover {
   transition: all 2s ease-in;
   background: linear-gradient(to right, #23a446, #e3b20a);
+}
+
+
+.remove-btn{
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+  position: relative;
+}
+.remove-btn .trash_icon{
+  position: absolute;
+  right: 0;
+  width: 41px;
+  height: 41px;
+  padding: 7px;
+  background: #09090B;
+  border-radius: 50%;
+  fill: red;
+  transition: all 0.3s ease-in;
+}
+.remove-btn span{
+  display: none;
+  opacity: 0;
+  transform: translate(100%);
+}
+.remove-btn:hover{
+  width: 230px;
+  padding: 0 5px;
+  transition: all 0.3s ease-in-out;
+  justify-content: space-between;
+  background:crimson;
+}
+.remove-btn:hover > span {
+  display: inline;
+  min-width: 190px;
+  transition: all 2s ease;
+  opacity: 1;
+  transform: translate(0%);
+}
+.remove-btn:hover > .trash_icon{
+  animation: trashAnimation 0.5s ease-in-out;
+  fill: white;
+  background-color: transparent;
+}
+
+@keyframes trashAnimation {
+  0%{
+    transform: rotate(20deg) scale(70%);
+  }50%{
+    transform: rotate(-10deg);
+  }100%{
+    transform: rotate(0deg);
+  }
+}
+
+::-webkit-scrollbar{
+  width: 5px;
+  background-color: black;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgb(16, 16, 16);
 }

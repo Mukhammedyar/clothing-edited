@@ -7,6 +7,8 @@ import ModalColors from '../components/ModalColors'
 import { useState } from 'react'
 import { colorsType } from '../helpers/types'
 import { Icons } from '../helpers/icons'
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 export const Products = () => {
   const [open, setOpen] = useState(false)
@@ -34,18 +36,14 @@ export const Products = () => {
               Select your look!
             </h1>
           </div>
-          <div className="w-auto px-5 h-12 rounded-full border-zinc-900 border-[1px] flex items-center justify-center gap-3 cursor-pointer">
-            <p className="text-sm">Favourites</p>
-            <Icons.Cart width={23} height={23} onClick={()=> navigate('/')}/>
-          </div>
         </div>
         {/* colors */}
-        <div className='colors_display w-full mb-10 gap-3'>
+        <div className='colors_display w-full mb-10 gap-3 sticky_navar py-2'>
           <div className="flex flex-col justify-end">
             <p className='card-subtitle ml-2 text-zinc-500 min-w-[150px] sm:min-w-[160px] md:min-w-[180px]'>Search by color:</p>
             <div className='relative w-[200px] md:w-[240px] justify-between flex items-center gap-2 border_full_rounded'>
               <img src={color} alt="color" className='w-10 h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 mr-5' onClick={()=> setOpen(!open)}/>
-              <ModalColors handleColorClick={handleColorClick} className={`${open ? "flex" : "hidden"} absolute top-28 -left-24 z-10`} />
+              <ModalColors handleColorClick={handleColorClick} className={`${open ? "flex" : "hidden"} absolute top-20 -left-10 z-10`} />
               <div className="flex items-center">
                 {lastFourColors.map((color, index) => (
                   <div
@@ -59,10 +57,16 @@ export const Products = () => {
             </div>
           </div>
           {/* types */}
-          <div className='flex lg:flex-center gap-2 sm:gap-2 md:gap-3 mt-5 text-zinc-500'>
+          <div className='flex lg:flex-center gap-2 sm:gap-2 md:gap-3 text-zinc-500'>
               {ClothingCategores.map((type, index) => (
                 <div key={index} className="size-container text-sm sm:text-md md:text-lg px-3 lg:px-5 py-2 ">{type}</div>
             ))}
+          </div>
+          <div 
+            onClick={()=> navigate('/saved')}
+            className="favourites_box">
+            <p className="text-sm">Favourites</p>
+            <Icons.Cart width={23} height={23} onClick={()=> navigate('/')}/>
           </div>
         </div>
         <ProductsCard/>

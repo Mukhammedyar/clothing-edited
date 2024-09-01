@@ -16,7 +16,7 @@ const ProductItem = () => {
 
   return (
     <div className="bg-black min-h-screen text-white montserrat-normal">
-      <div className="flex items-center justify-between gap-5 py-5 mb-10 top-0 sticky backdrop-blur-md contain border-b-[1px] border-b-zinc-900">
+      <div className="flex items-center justify-between gap-5 py-5 mb-10 sticky_navbar contain border-b-[1px] border-b-zinc-900">
         <div className="flex gap-3 items-center">
           <BackButton onClick={()=> navigate(-1)}/>
           <div 
@@ -29,7 +29,12 @@ const ProductItem = () => {
         <h1 className="header-page montserrat-medium">
           {id}
         </h1>
-        <Icons.Cart width={20} height={20}/>
+        <div 
+          onClick={()=> navigate('/saved')}
+          className="favourites_box">
+          <p className="text-sm">Favourites</p>
+          <Icons.Cart width={23} height={23} onClick={()=> navigate('/')}/>
+        </div>
       </div>
       <SelectedProduct id={id || ''} setIndex={setIndex} index={index} product={filteredProduct[0]} />
       <Complects product={filteredProduct[0]}/>
