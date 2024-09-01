@@ -110,13 +110,6 @@ const SelectedProduct: React.FC<selectedProduct> = ({setIndex, index, product}) 
                   item={product}>
                     <p>Add to cart</p>
                 </AddToSavedButton>
-                <AddToSavedButton 
-                  className='relative' 
-                  fullFilledIcon={<Icons.LikeFullFilled width={27} height={27}/>} 
-                  outlinedIcon={<Icons.LikeOutlined width={27} height={27}/>} 
-                  item={product}>
-                    <p></p>
-                </AddToSavedButton>
             </div>
           </div>
         </div>

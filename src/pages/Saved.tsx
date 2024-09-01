@@ -89,19 +89,19 @@ export const Cart = () => {
                                 <div className="flex">
                                     <button className="rounded-s-full w-14 md:w-18 h-8 md:10 text-sm md:text-lg lg:text-xl border-card">+</button>
                                     <p className="border-card flex-center w-10 md:w-16 h-8 md:10">0</p>
-                                    <button className="rounded-r-full border_card_last border-card w-14 md:w-18 h-8 md:10 text-sm md:text-lg lg:text-xl">-</button>
+                                    <button className="rounded-r-full border_card_last hover:bg-zinc-900 border-card w-14 md:w-18 h-8 md:10 text-sm md:text-lg lg:text-xl">-</button>
                                 </div>
                                 {/* desktop */}
                                 <button 
                                     onClick={() => deleteCard(item.name)}
-                                    className="border_card_last hidden lg:flex remove-btn rounded-full">
+                                    className="border_card_last hover:bg-zinc-900  hidden lg:flex remove-btn rounded-full">
                                     <span className="px-3">Remove from Saved</span>
                                     <Icons.Trash width={27} height={27} color="" className="trash_icon"/>
                                 </button>
                                 {/* mobile */}
                                 <button 
                                     onClick={() => deleteCard(item.name)}
-                                    className="border_card_last lg:hidden flex-between py-1 px-2 rounded-full">
+                                    className="border_card_last hover:bg-zinc-900  lg:hidden flex-between py-1 px-2 rounded-full">
                                     <span className="px-3 text-sm">Remove</span>
                                     <Icons.Trash width={20} height={20} color="" className="trash_icon_mobile fill-red-500"/>
                                 </button>
