@@ -15,7 +15,6 @@ export interface selectedProduct {
 
 const SelectedProduct: React.FC<selectedProduct> = ({setIndex, index, product}) => {
   const filteredProduct = productData.filter( p => p.title === product.title)
-  const [liked, setLiked] = useState(false)
   const navigate = useNavigate()
   const onClickHandler = (id:number, color:apiProductType) => {
     setIndex(id)
