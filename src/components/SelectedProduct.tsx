@@ -3,7 +3,6 @@ import { productData } from '../helpers';
 import { Icons } from '../helpers/icons'
 import { apiProductType } from '../helpers/types';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useState } from 'react';
 import AddToSavedButton from './AddToSaveBtn';
 
 export interface selectedProduct {
