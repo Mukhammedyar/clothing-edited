@@ -28,7 +28,7 @@ export const Products = () => {
     return (
     <div className="bg-black min-h-screen text-white contain montserrat-normal">
       <div className="container mx-auto">
-        <div className="flex items-center gap-2 md:gap-5 py-5 justify-between">
+        <div className="flex items-center gap-2 md:gap-5 py-5 justify-between sticky_navbar md:relative">
           <div className="flex items-center gap-5">
             <BackButton onClick={()=> navigate(-1)}/>
             <h1 className="header-page montserrat-medium">
@@ -36,9 +36,15 @@ export const Products = () => {
               Select your look!
             </h1>
           </div>
+          <div 
+            onClick={()=> navigate('/saved')}
+            className="favourites_box flex-center md:hidden">
+            <p className="text-sm md:flex hidden">Favourites</p>
+            <Icons.Cart width={20} height={20} onClick={()=> navigate('/')}/>
+          </div>
         </div>
         {/* colors */}
-        <div className='colors_display w-full mb-10 gap-3 sticky_navbar py-2'>
+        <div className='colors_display w-full mb-10 gap-3 md:sticky_navbar py-2'>
           <div className="flex flex-col justify-end">
             <p className='card-subtitle ml-2 text-zinc-500 min-w-[150px] sm:min-w-[160px] md:min-w-[180px]'>Search by color:</p>
             <div className='relative w-[200px] md:w-[240px] justify-between flex items-center gap-2 border_full_rounded'>
@@ -64,7 +70,7 @@ export const Products = () => {
           </div>
           <div 
             onClick={()=> navigate('/saved')}
-            className="favourites_box">
+            className="favourites_box hidden md:flex">
             <p className="text-sm">Favourites</p>
             <Icons.Cart width={23} height={23} onClick={()=> navigate('/')}/>
           </div>

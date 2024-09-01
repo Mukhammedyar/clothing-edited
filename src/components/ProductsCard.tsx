@@ -15,7 +15,7 @@ const ProductsCard = () => {
   }
   
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-5 px-5 md:px-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-5 px-5 md:px-10 lg:px-32">
     {productData.map((item, index) => (
       <Card index={index} key={index}>
           <div className="w-full h-full" onClick={()=> onClickHandler(item)}>
@@ -57,8 +57,8 @@ const ProductsCard = () => {
         </div>
         <AddToSavedButton 
           item={item} 
-          fullFilledIcon={<Icons.CartFullFilled width={25} height={25}/>} 
-          outlinedIcon={<Icons.Cart height={25} width={25}/>} 
+          fullFilledIcon={<Icons.CartFullFilled width={20} height={20}/>} 
+          outlinedIcon={<Icons.Cart height={20} width={20}/>} 
           className="absolute top-3 right-3">
             <p></p>
           </AddToSavedButton>

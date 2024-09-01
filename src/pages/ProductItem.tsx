@@ -21,9 +21,9 @@ const ProductItem = () => {
           <BackButton onClick={()=> navigate(-1)}/>
           <div 
             onClick={()=> navigate('/')}
-            className="w-auto px-5 gap-3 cursor-pointer h-12 rounded-full border-zinc-900 border-[1px] flex items-center justify-center">
+            className="w-auto h-10 md:h-12 px-2 md:px-5 gap-3 cursor-pointer rounded-full border_card_last flex-center responsive_text">
             <p className="text-md">Go to Home</p>
-            <Icons.Home width={23} height={23}/>
+            <Icons.Home width={20} height={20}/>
           </div>
         </div>
         <h1 className="header-page montserrat-medium">
@@ -31,8 +31,8 @@ const ProductItem = () => {
         </h1>
         <div 
           onClick={()=> navigate('/saved')}
-          className="favourites_box">
-          <p className="text-sm">Favourites</p>
+          className="favourites_box flex-center">
+          <p className="text-sm hidden md:flex">Favourites</p>
           <Icons.Cart width={23} height={23} onClick={()=> navigate('/')}/>
         </div>
       </div>

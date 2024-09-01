@@ -8,8 +8,8 @@ interface BackButtonProps {
 export const BackButton:React.FC<BackButtonProps> = ({onClick}) => {
     
   return (
-    <div className="p-2 border_card_last hover:bg-zinc-900 rounded-full" onClick={onClick}>
-        <Icons.Back width={25} height={25} />
+    <div className="w-10 md:w-12 h-10 md:h-12 flex-center border_card_last hover:bg-zinc-900 rounded-full" onClick={onClick}>
+        <Icons.Back width={20} height={20} />
     </div>
   )
 }
