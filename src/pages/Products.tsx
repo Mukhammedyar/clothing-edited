@@ -38,7 +38,7 @@ export const Products = () => {
           </div>
         </div>
         {/* colors */}
-        <div className='colors_display w-full mb-10 gap-3 sticky_navar py-2'>
+        <div className='colors_display w-full mb-10 gap-3 sticky_navbar py-2'>
           <div className="flex flex-col justify-end">
             <p className='card-subtitle ml-2 text-zinc-500 min-w-[150px] sm:min-w-[160px] md:min-w-[180px]'>Search by color:</p>
             <div className='relative w-[200px] md:w-[240px] justify-between flex items-center gap-2 border_full_rounded'>
